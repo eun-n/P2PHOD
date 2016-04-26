@@ -2,6 +2,7 @@ var static = require('node-static');
 var http = require('http');
 var file = new(static.Server)();
 var ejs = require('ejs');
+var ejsLayouts = require('express-ejs-layouts');
 var bodyParser = require('body-parser');
 var request = require("request");
 var express = require("express");
@@ -47,14 +48,14 @@ app.get('/signup', function (req, res) {
 
 app.get('/users', function(req, res) {
   db.person.findAll().then(function(persons) {
-    console.log(persons);
+    // console.log(persons);
     res.render('user', {persons: persons});
   });
 });
 
 app.post('/signup', function(req, res) {
   var newPerson = req.body;
-  console.log(newPerson);
+  // console.log(newPerson);
 
   db.person.create(newPerson).then(function() {
     res.redirect('/users');
