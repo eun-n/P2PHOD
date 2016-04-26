@@ -6,12 +6,10 @@ module.exports = function(sequelize, DataTypes) {
     authorId: DataTypes.INTEGER
   }, {
     classMethods: {
-      associate: function(models) {
         // associations can be defined here
         associate: function(models) {
   models.post.belongsTo(models.user);
 }
-      }
     }
   });
   return post;
