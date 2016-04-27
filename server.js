@@ -8,29 +8,42 @@ var request = require("request");
 var express = require("express");
 var db = require('./models');
 var authCtrl = require('./controllers/auth');
-
+var flash = require('connect-flash');
 
 var app = express();
 var session = require('express-session');
 
 
-//app.use(ejsLayouts);
 app.use(bodyParser.urlencoded({ extended: false}))
 app.use(express.static(__dirname + '/static'));
 app.use(ejsLayouts);
-
+app.use('/auth', authCtrl);
+app.use('/posts', postCtrl);
 
 app.set('view engine', 'ejs');
 
-//...
 app.use(session({
-  secret: 'Salty saltsalt',
+  secret: 'a bunch of random LETTERS',
   resave: false,
   saveUninitialized: true
 }));
 
-app.use('/auth', authCtrl);
 
+app.use(flash());
+
+app.use(function(req, res, next) {
+  if (req.session.personId) {
+    db.person.findById(req.session.personId).then(function(person) {
+      req.currentUser = person;
+      res.locals.currentUser = person;
+      next();
+    })
+  } else {
+    req.currentUser = false;
+    res.locals.currentUser = false;
+    next();
+  }
+});
 
 
 app.get('/', function (req, res) {
@@ -80,6 +93,22 @@ app.post('/newpost', function(req, res) {
   console.log(newPost);
   db.post.create(newPost).then(function() {
     res.redirect('/posts');
+  });
+});
+
+app.get('/random', function(req, res) {
+  var query = req.query.q;
+
+  request('http://www.reddit.com/r/kpics/search.json?q=' + query + '&restrict_sr=on', function(err, response, body) {
+    var data = JSON.parse(body);
+    var results = data.data.children;
+    var im = []
+     for (var i = 0; i < results.length; i++) {
+      var result = results[i].data;
+      im.push(result.url);
+    }
+    console.log(im);
+      res.render('random');
   });
 });
 

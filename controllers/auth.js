@@ -12,11 +12,11 @@ router.post('/signin', function(req, res) {
   // proving we get the username and password
   var person = req.body.username;
   var pass = req.body.password;
-  db.person.authenticate(person, pass, function(err, user) {
+  db.person.authenticate(person, pass, function(err, person) {
     // user successfully logged in.
     if (person) {
       req.session.personId = person.id;
-      req.flash('success', 'Successfnully logged in.');
+      req.flash('success', 'Successfully logged in.');
       res.redirect('/posts');
     }
   });

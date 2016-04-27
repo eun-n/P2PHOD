@@ -19,26 +19,26 @@
 </head>
 
 <body>
+  <ul class="nav nav-pills">
+    <li role="presentation" class="active"><a href="/">Home</a></li>
+    <li role="presentation"><a href="/video/0">Video Chat</a></li>
+    <li role="presentation"><a href="/signup">Sign up</a></li>
+    <li role="presentation"><a href="/users">Users</a></li>
+    <li role="presentation"><a href="/posts">Post</a></li>
+    <li role="presentation"><a href="/newpost">Create Post</a></li>
+  </ul> 
+  <form method=""
+<br>
 
-<ul class="nav nav-pills">
-  <li role="presentation" class="active"><a href="/">Home</a></li>
-  <li role="presentation"><a href="/video/0">Video Chat</a></li>
-  <li role="presentation"><a href="/signup">Sign up</a></li>
-  <li role="presentation"><a href="/users">Users</a></li>
-  <li role="presentation"><a href="/posts">Post</a></li>
-  <li role="presentation"><a href="/newpost">Create Post</a></li>
-
-</ul><br>
-
-
-  <form method="POST" action="/auth/signin">
-  	<input type="text" name="username">
-  	<input type="password" name="password">
-  	<input type="submit" value="Log In">
-  </form><br>
+  <form action="/random" method="GET">
+  <legend>Search random Kpop pictures</legend>
+    <input type="text" class="form-control" id="" placeholder="ex. Twice" name="q">
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
   
   <%- body %>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script  src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
 </body>
 
 </html>

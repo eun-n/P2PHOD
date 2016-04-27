@@ -8,6 +8,7 @@
     "bcrypt": "^0.8.6",
     "body-parser": "^1.15.0",
     "bootstrap": "^3.3.6",
+    "connect-flash": "^0.1.1",
     "ejs": "^2.4.1",
     "ejs-layouts": "0.0.1",
     "express": "^4.13.4",
@@ -20,6 +21,7 @@
     "psql": "0.0.1",
     "router": "^1.1.4",
     "sequelize": "^3.21.0",
+    "session": "^0.1.0",
     "socket.io": "^1.4.5",
     "validate": "^3.0.1"
   },

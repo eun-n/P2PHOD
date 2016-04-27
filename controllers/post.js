@@ -3,11 +3,11 @@ var db = require('../models');
 
 var router = express.Router();
 
-router.get('/', function(req, res) {
-	// if(!req.currentUser) {
-	// 	req.flash('danger', 'You must be logged in to view this page.');
-	// 	res.redirect('/');
-	// }
+router.get('/posts', function(req, res) {
+	if(!req.currentUser) {
+		req.flash('danger', 'You must be logged in to view this page.');
+		res.redirect('/');
+	}
 
 
 	db.post.findAll({
