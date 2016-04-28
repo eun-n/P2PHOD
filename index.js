@@ -75,7 +75,7 @@ app.post('/signup', function(req, res) {
   // console.log(newPerson);
 
   db.person.create(newPerson).then(function() {
-    res.redirect('/users');
+    res.redirect('/posts');
   });
 });
 
