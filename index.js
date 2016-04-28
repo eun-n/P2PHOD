@@ -87,8 +87,11 @@ app.post('/newpost', function(req, res) {
   var newPost = req.body;
   console.log(newPost);
   db.post.create(newPost).then(function() {
-    res.redirect('/posts');
-  });
+  db.post.findAll().then(function(posts) {
+    // console.log(persons);
+    res.render('posts', {posts: posts});
+  });  
+});
 });
 
 app.get('/random', function(req, res) {
