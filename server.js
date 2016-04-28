@@ -70,13 +70,6 @@ app.get('/posts', function(req, res) {
   });
 });
 
-app.get('/users', function(req, res) {
-  db.person.findAll().then(function(persons) {
-    // console.log(persons);
-    res.render('user', {persons: persons});
-  });
-});
-
 app.post('/signup', function(req, res) {
   var newPerson = req.body;
   // console.log(newPerson);
