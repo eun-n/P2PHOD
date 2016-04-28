@@ -1,8 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../models');
+var flash = require('express-flash');
+var app = express();
 
-router.get('/logout', function(req, res) {
+ app.use(flash());
+
+router.post('/logout', function(req, res) {
   req.currentUser = false;
   res.locals.currentUser = false;
   res.redirect('/');
@@ -13,17 +17,18 @@ router.post('/signin', function(req, res) {
   var person = req.body.username;
   var pass = req.body.password;
   db.person.authenticate(person, pass, function(err, person) {
-    // user successfully logged in.
     if (person) {
       req.session.personId = person.id;
-      req.flash('success', 'Successfully logged in.');
+      console.log('success', 'Successfully logged in.');
+      currentUser = person;
+      console.log(currentUser);
       res.redirect('/posts');
     }
   });
 });
 
 router.get('/signup', function(req, res) {
-  res.render('signup', {alerts: req.flash()});
+  res.render('signup');
 });
 
 router.post('/signup', function(req, res) {
@@ -37,7 +42,8 @@ router.post('/signup', function(req, res) {
   }).spread(function(user, isNew) {
   	if (isNew) {
     	res.redirect('/posts');
-  	} else {
+  	} else if (db.person.find({where: {username:req.body.username}}) != null) {
+  		console.log("danger");
   		req.flash('danger', 'Username already taken. Please choose another.')
     	res.redirect('/auth/signup');
   	}

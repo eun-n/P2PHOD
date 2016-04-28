@@ -18,11 +18,11 @@ router.get('/posts', function(req, res) {
 	});
 });
 
-router.post('/', function(req, res){
+router.post('/newposts', function(req, res){
 	console.log(req.body);
 
 	db.person.find({
-		where: { username: req.currentUser.username}
+		where: { username: currentUser.username}
 	}).then(function(user) {
 		person.createPost({
 			content: req.body.content

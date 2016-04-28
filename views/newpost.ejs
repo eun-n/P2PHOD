@@ -1,6 +1,10 @@
 <h1>New Post</h1>
 <form method="POST">
+<strong>
+  	<%= currentUser.username %>
+  </strong>
   <input type="text" name="title" placeholder="title">
   <input type="text" name="content" placeholder="post">
+  <input type="text" name="url" placeholder="picture url">
   <input type="submit" value="Post">
 </form>

@@ -19,26 +19,41 @@
 </head>
 
 <body>
-  <ul class="nav nav-pills">
-    <li role="presentation" class="active"><a href="/">Home</a></li>
-    <li role="presentation"><a href="/video/0">Video Chat</a></li>
-    <li role="presentation"><a href="/signup">Sign up</a></li>
-    <li role="presentation"><a href="/users">Users</a></li>
-    <li role="presentation"><a href="/posts">Post</a></li>
-    <li role="presentation"><a href="/newpost">Create Post</a></li>
-  </ul> 
-  <form method=""
-<br>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
+      <ul class="nav nav-pills">
+        <li role="presentation" class="active"><a href="/">Home</a></li>
+        <li role="presentation"><a href="/video/0">Video Chat</a></li>
+        <li role="presentation"><a href="/signup">Sign up</a></li>
+        <li role="presentation"><a href="/users">Users</a></li>
+        <li role="presentation"><a href="/posts">Posts</a></li>
+        <li role="presentation"><a href="/newpost">Create Post</a></li>
+      </ul> 
+    </div>
+    <div class="col-lg-4" id="session">
+        <p>Currently logged in as <%=currentUser.username%></p>
+         <form action="/logout">
+            <button type="submit" class="btn btn-danger">Logout</button>
+          </form>
+      </div>
+    </div>
+</div>
+  <%- body %> <br><br><br>
 
-  <form action="/random" method="GET">
-  <legend>Search random Kpop pictures</legend>
-    <input type="text" class="form-control" id="" placeholder="ex. Twice" name="q">
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-  
-  <%- body %>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+   <form action="/random" method="GET">
+      <legend>Random Pokemon Generator (enter a number between 1 and 721)</legend>
+        <input type="text" class="form-control" id="" placeholder="ex. 720" name="q">
+      <button type="submit" class="btn btn-primary">Pokemon</button>
+    </form>
+  </div>
+</nav>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <script  src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
 </body>
 
 </html>

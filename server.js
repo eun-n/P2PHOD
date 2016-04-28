@@ -8,7 +8,8 @@ var request = require("request");
 var express = require("express");
 var db = require('./models');
 var authCtrl = require('./controllers/auth');
-var flash = require('connect-flash');
+var flash = require('express-flash');
+
 
 var app = express();
 var session = require('express-session');
@@ -17,8 +18,9 @@ var session = require('express-session');
 app.use(bodyParser.urlencoded({ extended: false}))
 app.use(express.static(__dirname + '/static'));
 app.use(ejsLayouts);
-app.use('/auth', authCtrl);
-app.use('/posts', postCtrl);
+ app.use(flash());
+
+// app.use('/posts', postCtrl);
 
 app.set('view engine', 'ejs');
 
@@ -28,8 +30,8 @@ app.use(session({
   saveUninitialized: true
 }));
 
+app.use('/auth', authCtrl);
 
-app.use(flash());
 
 app.use(function(req, res, next) {
   if (req.session.personId) {
@@ -99,16 +101,13 @@ app.post('/newpost', function(req, res) {
 app.get('/random', function(req, res) {
   var query = req.query.q;
 
-  request('http://www.reddit.com/r/kpics/search.json?q=' + query + '&restrict_sr=on', function(err, response, body) {
+  request('http://pokeapi.co/api/v2/pokemon/' + query, function(err, response, body) {
     var data = JSON.parse(body);
-    var results = data.data.children;
-    var im = []
-     for (var i = 0; i < results.length; i++) {
-      var result = results[i].data;
-      im.push(result.url);
+    if (!err && response.statusCode === 200 && data) {
+      res.render('random', {random: data, q: query});
+    } else {
+      res.render('error');
     }
-    console.log(im);
-      res.render('random');
   });
 });
 
