@@ -94,6 +94,15 @@ app.post('/newpost', function(req, res) {
 });
 });
 
+app.delete('/posts', function(req, res) {
+  var id = parseInt(req.body.id);
+  db.post.find({where: {id: id}}).then(function(id){
+    id.destroy().then(function(u){
+      res.render('posts');
+    });
+  });
+});
+
 app.get('/random', function(req, res) {
   var query = req.query.q;
 
