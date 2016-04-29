@@ -107,6 +107,18 @@ app.get('/random', function(req, res) {
   });
 });
 
+var serverOptions = {
+  key: fs.readFileSync('./private.key'),
+  cert: fs.readFileSync('./certificate.pem')
+};
+
+var peerOptions = {
+  debug: true
+}
+var server = https.createServer(serverOptions, app);
+
 app.use('/peerjs', ExpressPeerServer(server, peerOptions));
+
+server.listen(httpsPort);
 
 app.listen(process.env.PORT || 3000)
