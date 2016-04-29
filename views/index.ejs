@@ -19,7 +19,7 @@
     //   debug: 3
     // });
 
-    var peer = new Peer({host:'peerjs-server.herokuapp.com', port: 443, key: 'peerjs', secure: true});
+    var peer = new Peer({host:'p2ppeerjs.herokuapp.com', port: 443, key: 'peerjs', secure: true});
 
     peer.on('open', function(){
       $('#my-id').text(peer.id);
