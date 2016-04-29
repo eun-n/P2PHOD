@@ -24,14 +24,14 @@
   <div class="row">
     <div class="col-lg-8">
       <ul class="nav nav-pills">
-        <li role="presentation" class="active"><a href="/">Home</a></li>
+        <li role="presentation"><a href="/">Home</a></li>
         <li role="presentation"><a href="/video/0">Video Chat</a></li>
         <li role="presentation"><a href="/signup">Sign up</a></li>
         <li role="presentation"><a href="/posts">Posts</a></li>
         <li role="presentation"><a href="/newpost">Create Post</a></li>
       </ul> 
     </div>
-    <div class="col-lg-4" id="session">
+    <div class="col-lg-3" id="session">
         <p>Currently logged in as <%=currentUser.username%></p>
          <form action="/logout">
             <button type="submit" class="btn btn-danger">Logout</button>
@@ -39,6 +39,7 @@
       </div>
     </div>
 </div>
+<hr>
   <%- body %>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">

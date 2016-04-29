@@ -13,14 +13,13 @@ open project in terminal
 -nodemon or node index.js
 
 Unsolved Problems:
-Currently the caller ID from the PeerJS cloud server is delivered over http, while getUserMedia (video calling) is only available in https. This results in a MixedContent error that does not accept the caller ID. The ID shows up when run on localhost.
+
 
 Possible Problems:
 Trolling. Lots of trolling.
 
 Future Goals:
 Add in tags and a sorting option for posts.
-Get the video chat to work over https.
 Implement a calendar so people are able to schedule availability.
 Find a way to connect users without having to type in the caller ID.
 Create a rating system where users are able to rate others for helpfulness.

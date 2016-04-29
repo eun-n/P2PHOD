@@ -7,7 +7,7 @@
 body {
 	color: white;
 	font-weight: bold;
-	background-color:tan;
+	background-color:teal;
 	margin-left:50px;
 }
 
@@ -23,9 +23,9 @@ body {
    border-width: 2px;
    margin-top:7px;
    margin-right: 50px;
-   background-color:white;
+   background-color:beige;
    color: black;
-
+   padding-left: 10px;
 }
 
 .form-control {
@@ -75,4 +75,16 @@ a:hover {
 
 input {
 	color: black;
+}
+
+.nav-pills {
+	border-style: solid;
+	border-color:black;
+   border-width: 2px;
+   margin-top:7px;
+   margin-right: 50px;
+   border-radius: 5px;
+   background-color:beige;
+   color: black;
+   padding-left: 10px;
 }
