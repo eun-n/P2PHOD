@@ -97,7 +97,7 @@ app.post('/newpost', function(req, res) {
 app.get('/random', function(req, res) {
   var query = req.query.q;
 
-  request('https://pokeapi.co/api/v2/pokemon/' + query, function(err, response, body) {
+  request('http://pokeapi.co/api/v2/pokemon/' + query, function(err, response, body) {
     var data = JSON.parse(body);
     if (!err && response.statusCode === 200 && data) {
       res.render('random', {random: data, q: query});
@@ -106,6 +106,8 @@ app.get('/random', function(req, res) {
     }
   });
 });
+
+var httpsPort = 3443;
 
 var serverOptions = {
   key: fs.readFileSync('./private.key'),
