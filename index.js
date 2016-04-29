@@ -117,7 +117,8 @@ var serverOptions = {
 };
 
 var peerOptions = {
-  debug: true
+  debug: true,
+  secure: true
 }
 var server = https.createServer(serverOptions, app);
 

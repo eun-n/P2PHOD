@@ -19,7 +19,7 @@
     //   debug: 3
     // });
 
-    var peer = new Peer({key: 'kp9k7m0g1517zaor'});
+    var peer = new Peer({key: 'kp9k7m0g1517zaor', secure: true});
 
     peer.on('open', function(){
       $('#my-id').text(peer.id);
