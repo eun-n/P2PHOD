@@ -5,9 +5,9 @@
 	margin-bottom: 30px;
 }
 body {
-	color: midnightblue;
+	color: white;
 	font-weight: bold;
-	background-color:white;
+	background-color:tan;
 	margin-left:50px;
 }
 
@@ -40,4 +40,33 @@ body {
 
 h1 {
 	font-size: 40
+	color: white;
+	text-shadow: 1px 1px 1px #000,
+            -1px -1px 1px #000,
+            -1px 1px 1px #000,
+             1px -1px 1px #000;
+}
+
+h2 {
+		color: white;
+	text-shadow: 1px 1px 1px #000,
+            -1px -1px 1px #000,
+            -1px 1px 1px #000,
+             1px -1px 1px #000;
+}
+
+.post {
+	color: black;
+}
+
+a {
+	color: white;
+		text-shadow: 1px 1px 1px #000,
+             -1px -1px 1px #000,
+             -1px 1px 1px #000,
+              1px -1px 1px #000;
+}
+
+a:hover {
+    color: skyblue;
 }

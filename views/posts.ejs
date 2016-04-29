@@ -2,8 +2,7 @@
 <% posts.forEach(function(post) { %>
 	<div class="post">
 	<h2><a href="/video/<%=post.id%>"> <img class="img-thumbnail" src="<%=post.url%>"> <%= post.personId %>: 
-<%= post.title %> - <%= post.content %>       <button id="<%= post.id %>" type="submit" class="delete-button btn-danger pull-right delete glyphicon glyphicon-remove"></button>
-</a></h2>
+<%= post.title %> - <%= post.content %> </a></h2>
 	</div>
 <% }); %>
 

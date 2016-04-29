@@ -3,13 +3,9 @@ var db = require('../models');
 
 var router = express.Router();
 
+
+//function to show all posts
 router.get('/posts', function(req, res) {
-	if(!req.currentUser) {
-		req.flash('danger', 'You must be logged in to view this page.');
-		res.redirect('/');
-	}
-
-
 	db.post.findAll({
 		include: [db.person]
 	}).then(function(posts) {
@@ -18,6 +14,8 @@ router.get('/posts', function(req, res) {
 	});
 });
 
+
+//functiont to post new posts
 router.post('/newposts', function(req, res){
 	console.log(req.body);
 
@@ -33,5 +31,6 @@ router.post('/newposts', function(req, res){
 		res.send(err);
 	});
 });
+
 
 module.exports = router;

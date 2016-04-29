@@ -19,9 +19,7 @@ var session = require('express-session');
 app.use(bodyParser.urlencoded({ extended: false}))
 app.use(express.static(__dirname + '/static'));
 app.use(ejsLayouts);
- app.use(flash());
-
-// app.use('/posts', postCtrl);
+app.use(flash());
 
 app.set('view engine', 'ejs');
 
@@ -85,24 +83,16 @@ app.get('/newpost', function(req, res){
 
 app.post('/newpost', function(req, res) {
   var newPost = req.body;
-  console.log(newPost);
+  // console.log(newPost);
   db.post.create(newPost).then(function() {
   db.post.findAll().then(function(posts) {
-    // console.log(persons);
     res.render('posts', {posts: posts});
   });  
 });
 });
 
-app.delete('/posts', function(req, res) {
-  var id = parseInt(req.body.id);
-  db.post.find({where: {id: id}}).then(function(id){
-    id.destroy().then(function(u){
-      res.render('posts');
-    });
-  });
-});
 
+//api functionality
 app.get('/random', function(req, res) {
   var query = req.query.q;
 
@@ -115,6 +105,9 @@ app.get('/random', function(req, res) {
     }
   });
 });
+
+//this code was in order to get the video chat to work, currently getUserMedia only works in https,
+//but the caller id is sent over http, which creates a mixed content error
 
 var httpsPort = 3443;
 

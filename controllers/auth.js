@@ -6,7 +6,7 @@ var app = express();
 
  app.use(flash());
 
-router.post('/logout', function(req, res) {
+router.get('/signout', function(req, res) {
   req.currentUser = false;
   res.locals.currentUser = false;
   res.redirect('/');
