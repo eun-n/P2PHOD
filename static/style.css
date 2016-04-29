@@ -1,8 +1,8 @@
 #my-video {
 	max-width: 150px;
 	max-height: 150px;
-	margin-left: -180px;
-	margin-bottom: 30px;
+	margin-left: -30px;
+	margin-top: -180px;
 }
 body {
 	color: white;
