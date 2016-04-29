@@ -10,16 +10,17 @@
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
     // PeerJS object
-    // var peer = new Peer({
-    //   // Should be domain name
-    //   host: 'p2phelpme.herokuapp.com',
-    //   // Use port 443 for Heroku
-    //   port: 443,
-    //   path: '/peerjs',
-    //   debug: 3
-    // });
+    var peer = new Peer({
+      // Should be domain name
+      host: 'p2phelpme.herokuapp.com',
+      // Use port 443 for Heroku
+      port: 443,
+      path: '/peerjs',
+      key: 'kp9k7m0g1517zaor',
+      debug: 3
+    });
 
-    var peer = new Peer({key: 'kp9k7m0g1517zaor'});
+    // var peer = new Peer({key: 'kp9k7m0g1517zaor'});
 
     peer.on('open', function(){
       $('#my-id').text(peer.id);
