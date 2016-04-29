@@ -24,7 +24,6 @@ body {
    margin-top:7px;
    margin-right: 50px;
    background-color:white;
-   background-color:white;
    color: black;
 
 }
@@ -72,4 +71,8 @@ a:hover {
 
 #pokemon {
 	max-width: 300px;
+}
+
+input {
+	color: black;
 }
