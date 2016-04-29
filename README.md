@@ -4,7 +4,7 @@ Project Overview:
 This app allows users to post a picture of a problem they have and create a video chat room that people can access by clicking on their post.
 
 Technologies Used:
-HTML, CSS, JavaScript, Node.JS, Express, WebRTC, PeerJS, Sequelize, Heroku
+HTML, CSS, JavaScript, Node.JS, Express, WebRTC, PeerJS (server-https://p2ppeerjs.herokuapp.com), Sequelize, Heroku
 
 Installation Instructions: 
 Fork and Clone repo
@@ -13,7 +13,7 @@ open project in terminal
 -nodemon or node index.js
 
 Unsolved Problems:
-
+Depending on heroku, there would be a notification that connection to the server would be lost. This does not affect the video chats, but it does affect the call id's distributed by the server. The user would have to refresh the page to get a new id, then quickly give the id to the other person before connection to the server is lost. 
 
 Possible Problems:
 Trolling. Lots of trolling.
