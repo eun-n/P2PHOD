@@ -1,5 +1,7 @@
 var static = require('node-static');
 var http = require('http');
+var https = require('https');
+var fs = require('fs');
 var file = new(static.Server)();
 var ejs = require('ejs');
 var ejsLayouts = require('express-ejs-layouts');
@@ -9,6 +11,7 @@ var express = require("express");
 var db = require('./models');
 var authCtrl = require('./controllers/auth');
 var flash = require('express-flash');
+var ExpressPeerServer = require('peer').ExpressPeerServer;
 
 var app = express();
 var session = require('express-session');
