@@ -24,6 +24,9 @@ body {
    margin-top:7px;
    margin-right: 50px;
    background-color:white;
+   background-color:white;
+   color: black;
+
 }
 
 .form-control {
@@ -55,10 +58,6 @@ h2 {
              1px -1px 1px #000;
 }
 
-.post {
-	color: black;
-}
-
 a {
 	color: white;
 		text-shadow: 1px 1px 1px #000,
@@ -69,4 +68,8 @@ a {
 
 a:hover {
     color: skyblue;
+}
+
+#pokemon {
+	max-width: 300px;
 }
