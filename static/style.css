@@ -34,6 +34,15 @@ body {
 
 #session {
 	color:black;
+	border-style: solid;
+	border-color:black;
+   border-width: 2px;
+   margin-top:7px;
+   margin-right: 50px;
+   border-radius: 5px;
+   background-color:mediumaquamarine;
+   padding-left: 10px;
+   padding-bottom: 5px;
 }
 
 .container {
@@ -41,7 +50,7 @@ body {
 }
 
 h1 {
-	font-size: 40
+	font-size: 40;
 	color: white;
 	text-shadow: 1px 1px 1px #000,
             -1px -1px 1px #000,
@@ -51,6 +60,15 @@ h1 {
 
 h2 {
 		color: white;
+	text-shadow: 1px 1px 1px #000,
+            -1px -1px 1px #000,
+            -1px 1px 1px #000,
+             1px -1px 1px #000;
+}
+
+h4 {
+	font-size:14px;
+	color: white;
 	text-shadow: 1px 1px 1px #000,
             -1px -1px 1px #000,
             -1px 1px 1px #000,
@@ -85,6 +103,5 @@ input {
    margin-right: 50px;
    border-radius: 5px;
    background-color:mediumaquamarine;
-   color: black;
    padding-left: 10px;
 }

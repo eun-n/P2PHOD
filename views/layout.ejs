@@ -22,7 +22,7 @@
 <body>
 <div class="container">
   <div class="row">
-    <div class="col-lg-8">
+    <div class="col-lg-8 col-md-6">
       <ul class="nav nav-pills">
         <li role="presentation"><a href="/">Home</a></li>
         <li role="presentation"><a href="/video/0">Video Chat</a></li>
@@ -31,8 +31,8 @@
         <li role="presentation"><a href="/newpost">Create Post</a></li>
       </ul> 
     </div>
-    <div class="col-lg-3" id="session">
-        <p>Currently logged in as <%=currentUser.username%></p>
+    <div class="col-lg-3 col-md-6" id="session">
+        <h4>Currently logged in as <%=currentUser.username%></h4>
          <form action="/logout">
             <button type="submit" class="btn btn-danger">Logout</button>
           </form>
