@@ -1,25 +1,19 @@
-<html>
-<head>
-  <title>PeerJS - Video chat example</title>
-  <link rel="stylesheet" href="/style.css">
+ <title>Video Chat</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/peerjs/0.3.14/peer.js"></script>
+
+
+  <script src='video.js'></script>
+
+
   <script>
 
     // Compatibility shim
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
-    // PeerJS object
-    // var peer = new Peer({
-    //   // Should be domain name
-    //   host: 'p2phelpme.herokuapp.com',
-    //   // Use port 443 for Heroku
-    //   port: 443,
-    //   path: '/peerjs',
-    //   debug: 3
-    // });
-
-    var peer = new Peer({host:'p2ppeerjs.herokuapp.com', port: 443, key: 'peerjs', secure: true});
+    //gets the call id from p2p peerJS web server set up on heroku
+    var peer = new Peer({host:'//p2ppeerjs.herokuapp.com', port: 443, key: 'peerjs', secure: true});
 
     peer.on('open', function(){
       $('#my-id').text(peer.id);
@@ -27,7 +21,7 @@
 
     // Receiving a call
     peer.on('call', function(call){
-      // Answer the call automatically (instead of prompting user) for demo purposes
+      // Answer the call automatically (instead of prompting user)
       call.answer(window.localStream);
       step3(call);
     });
@@ -99,50 +93,42 @@
   </script>
 
 
-</head>
-
-<body>
-
   <div class="pure-g">
 
       <!-- Video area -->
-      <div class="pure-u-2-3" id="video-container">
+      <div class="pure-u-3-5" id="video-container">
         <video id="their-video" autoplay></video>
         <video id="my-video" muted="true" autoplay></video>
       </div>
 
       <!-- Steps -->
-      <div class="pure-u-1-3">
-        <h2>PeerJS Video Chat</h2>
+      <div class="pure-u-2-5" id="videotext">
+        <h2>Video Chat</h2>
 
         <!-- Get local audio/video stream -->
         <div id="step1">
-          <p>Please click `allow` on the top of the screen so we can access your webcam and microphone for calls.</p>
+          <p>Please click 'allow' when prompted so we can access your webcam and microphone for calls.</p>
           <div id="step1-error">
-            <p>Failed to access the webcam and microphone. Make sure to run this demo on an http server and click allow when asked for permission by the browser.</p>
-            <a href="#" class="pure-button pure-button-error" id="step1-retry">Try again</a>
+            <p>Failed to access the webcam and microphone. Make sure to run this on an https server and click allow when asked for permission by the browser.</p>
+            <a href="/" class="btn btn-primary" id="step1-retry">Get New ID</a>
           </div>
         </div>
 
         <!-- Make calls to others -->
         <div id="step2">
-          <p>Your id: <span id="my-id">...</span></p>
-          <p>Share this id with others so they can call you.</p>
+          <p>Your ID: <span id="my-id">...</span></p>
+          <p>Share this ID with others so they can call you.</p> <hr>
           <h3>Make a call</h3>
           <div class="form">
-            <input type="text" placeholder="Call user id..." id="callto-id">
-            <a href="#" class="pure-button pure-button-success" id="make-call">Call</a>
+            <input type="text" placeholder="Call User ID..." id="callto-id">
+            <a href="#" class="btn btn-success" id="make-call">Call</a>
           </div>
         </div>
 
         <!-- Call in progress -->
         <div id="step3">
           <p>Currently in call with <span id="their-id">...</span></p>
-          <p><a href="#" class="pure-button pure-button-error" id="end-call">End call</a></p>
+          <p><a href="#" class="btn btn-danger" id="end-call">End call</a></p>
         </div>
       </div>
   </div>
-<br><br><br><br><br><br><br><br><br><br><br><br>
-
-</body>
-</html>
