@@ -4,6 +4,20 @@
 	margin-left: -190px;
 	margin-top: -180px;
 }
+
+.button-success {
+    background: rgb(28, 184, 65); /* this is a green */
+}
+
+.button-error {
+    background: rgb(202, 60, 60); /* this is a maroon */
+}
+
+#videotext {
+padding-left: 20px;
+border-left: 1px solid black;
+}
+
 body {
 	color: white;
 	font-weight: bold;
